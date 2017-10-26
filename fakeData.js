@@ -21,8 +21,8 @@ function genGeo() {
 }
 
 function zoneNo(geo) {
-	let ones = Math.round(geo.x/1000) +1;
-	let tens = Math.round(geo.y/1000);
+	let ones = Math.floor(geo.x/1000) +1;
+	let tens = Math.floor(geo.y/1000);
 	return (tens * 10 + ones);
 }
 
