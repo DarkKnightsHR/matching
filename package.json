@@ -1,0 +1,22 @@
+{
+  "name": "matching",
+  "version": "1.0.0",
+  "description": "matching engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarkKnightsHR/matching.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarkKnightsHR/matching/issues"
+  },
+  "homepage": "https://github.com/DarkKnightsHR/matching#readme",
+  "dependencies": {
+    "mysql": "^2.15.0"
+  }
+}
