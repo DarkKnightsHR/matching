@@ -38,7 +38,7 @@ for(let i = 0; i < 100000; i++) {
 	let geo2 = genGeo();
 	dbmysql.addReq(user, zone, geo.x, geo.y, geo2.x, geo2.y, function(err, res){
 		if (err) {
-			console.log('error saving entry', err);
+			console.log('insertion error ', err);
 		} else {
 			newEntries++;
 			console.log('success adding entry no: ', newEntries);
