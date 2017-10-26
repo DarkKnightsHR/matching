@@ -21,8 +21,8 @@ function genGeo() {
 }
 
 function zoneNo(geo) {
-	let ones = Math.round(geo.x/1000) +1;
-	let tens = Math.round(geo.y/1000);
+	let ones = Math.floor(geo.x/1000) +1;
+	let tens = Math.floor(geo.y/1000);
 	return (tens * 10 + ones);
 }
 
@@ -38,7 +38,7 @@ for(let i = 0; i < 100000; i++) {
 	let geo2 = genGeo();
 	dbmysql.addReq(user, zone, geo.x, geo.y, geo2.x, geo2.y, function(err, res){
 		if (err) {
-			console.log('error saving entry', err);
+			console.log('insertion error ', err);
 		} else {
 			newEntries++;
 			console.log('success adding entry no: ', newEntries);
