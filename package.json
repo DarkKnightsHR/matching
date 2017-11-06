@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/DarkKnightsHR/matching#readme",
   "dependencies": {
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "sqs-consumer": "^3.8.0"
   }
 }
