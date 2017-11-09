@@ -18,27 +18,18 @@ function match(riders, drivers) {
 
     let marriedDrivers = {};
     let matches = 0;
-    let iter = 0;
     while (matches < riders.length){
-        if (!marriedDrivers[choice[iter][1][0]['driver_id']]) {
-            marriedDrivers[choice[iter][1][0].driver_id] = choice[iter][0];
-            delete prefDrivers[choice[iter][0]];
+        if (!marriedDrivers[choice[0][1][0]['driver_id']]) {
+            marriedDrivers[choice[0][1][0].driver_id] = choice[0][0];
+            delete prefDrivers[choice[0][0]];
             choice.shift();
             matches++;
         } else {
-            prefDrivers[choice[iter][0]].shift();
+            prefDrivers[choice[0][0]].shift();
             choice = compChoice(prefDrivers);
         }
     }
     return marriedDrivers;
-}
-
-function compareDist(a,b) {
-    if (a[1] <= b[1]) {
-        return -1;
-    } else {
-        return 1;
-    }
 }
 
 function compChoice(prefDrivers) {
@@ -89,3 +80,4 @@ function orderByProx (pickup, drivers) {
 // // console.log('orderByProx: 5000, 5000 : ', orderByProx([5000, 5000], drivers));
 // console.log('These are the matches: ', match(riders,drivers));
 
+module.exports.match = match;
