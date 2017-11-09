@@ -30,24 +30,34 @@ function genUid() {
 	return Math.round(Math.random() * 1000000);
 }
 
+// while(newEntries < 2) {
+	// }
+	
 let newEntries = 0;
-for(let i = 0; i < 100000; i++) {
+
+let callback = function(err, res){
+	if (err) {
+		console.log('insertion error ', err);
+	} else {
+		newEntries++;
+		console.log('success adding entry no: ', newEntries);
+		if(newEntries < 10000000) {
+			genInsert(callback);
+		}
+	}
+}
+
+function genInsert(callback) {
 	let user = genUid();
 	let geo = genGeo();
 	let zone = zoneNo(geo);
 	let geo2 = genGeo();
-	dbmysql.addReq(user, zone, geo.x, geo.y, geo2.x, geo2.y, function(err, res){
-		if (err) {
-			console.log('insertion error ', err);
-		} else {
-			newEntries++;
-			console.log('success adding entry no: ', newEntries);
-		}
-	})
+	dbmysql.addReq(user, zone, geo.x, geo.y, geo2.x, geo2.y, callback);
 }
 
-
-
+// for(let i = 0; i < 50; i++) {
+// }
+genInsert(callback);
 
 
 
